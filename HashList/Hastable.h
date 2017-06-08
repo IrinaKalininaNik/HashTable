@@ -23,7 +23,7 @@ Table& operator=(Table& ht);
 void Add(DATA val_,KEY k_);
 void Del(KEY k_);
 void resize(int newSize);
-
+DATA min();
 };
 
 
@@ -134,6 +134,33 @@ void Table<KEY, DATA>::resize(int newSize)
 			Add(tmp[i].get(x).GetData(), tmp[i].get(x).GetKey());
 	}
 	delete[] tmp;
+}
+
+template <class KEY, class DATA>
+DATA Table<KEY, DATA>::min()
+{
+	KEY mini;
+	DATA name;
+	bool flag = false;
+	for( int i=0; i<size; i++)
+	{
+		if(mas[i].GetSize()!=0)
+		for(LinkNode<Node<KEY,DATA>>* a = this->mas[i].GetStart(); a!=nullptr; a = mas[i].GetNext(a))
+		{
+			if(!flag||a->Dom.GetKey()<mini)
+			{
+				flag=true;
+				mini=a->Dom.GetKey();
+				name = a->Dom.GetData();
+
+			}
+		}
+	
+	}
+	if(flag==false)
+		throw 15; 
+	return name;
+
 }
 
 #endif

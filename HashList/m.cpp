@@ -9,7 +9,7 @@ void main()
 	t.Add(4,9);
 	t.Add(5,10);
 	std::cout<<t[9].GetData()<<std::endl;
-	std::cout<<t[5].GetData()<<std::endl;
+	std::cout<<t.min()<<std::endl;
 	std::cin.get();
 
 }

@@ -18,7 +18,7 @@ class Link
   public:
 	  Link();
 	  ~Link();
-	  void GetSize();
+	  int GetSize();
 	  void AddStart(T& a);
 	  void AddEnd(T& a);
 	  LinkNode<T>* GetStart();
@@ -47,7 +47,7 @@ Link<T>::~Link()
 {}
 
 template <class T>
-void Link<T>::GetSize()
+int Link<T>::GetSize()
 {
 	return size;
 }
